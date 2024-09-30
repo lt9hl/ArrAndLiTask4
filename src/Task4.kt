@@ -1,22 +1,22 @@
 fun main() {
-    var str = mutableListOf<String>()
-    var str2 = mutableListOf<String>()
+    var str = (readln().split(", ")).toMutableList()
+    var str2 = (readln().split(", ")).toMutableList()
     try {
-        str = (readln().split(", ")).toMutableList()
-        str2 = (readln().split(", ")).toMutableList()
+        for (i in str) i.toInt()
+        for (i in str2) i.toInt()
     } catch (e: Exception) {
         println("Введены неверные данные")
     }
-    var arr1 = str.intersect(str2).toMutableList()
-    for (i in arr1.indices) {
+    var li1 = str.intersect(str2).toMutableList()
+    for (i in li1.indices) {
         var count = -0
-        if (str.count { x -> x == arr1[i] } >= str.count { x -> x == arr1[i] }) {
-            count = str.count { x -> x == arr1[i] }
-        } else count = str.count { x -> x == arr1[i] }
-        repeat(count - 1) { arr1.add(arr1[i]) }
+        if (str.count { x -> x == li1[i] } >= str.count { x -> x == li1[i] }) {
+            count = str.count { x -> x == li1[i] }
+        } else count = str.count { x -> x == li1[i] }
+        repeat(count - 1) { li1.add(li1[i]) }
     }
-    arr1.sort()
-    for (i in arr1) print("$i ")
+    li1.sort()
+    println(li1.toString())
 }
 /*Создать приложение, в котором пользователь дает на вход два числовых массива, числа в массиве могут повторяться.
 На выходе приложение выдает пересечение этих массивов. Например, на входе [1, 2, 3, 2, 0] и [5, 1, 2, 7, 3, 2, 2].
