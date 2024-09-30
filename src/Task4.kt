@@ -1,15 +1,15 @@
 fun main() {
-    var str = (readln().split(", ")).toMutableList()
-    var str2 = (readln().split(", ")).toMutableList()
+    val str = (readln().split(", ")).toMutableList()
+    val str2 = (readln().split(", ")).toMutableList()
     try {
         for (i in str) i.toInt()
         for (i in str2) i.toInt()
     } catch (e: Exception) {
         println("Введены неверные данные")
     }
-    var li1 = str.intersect(str2).toMutableList()
+    val li1 = str.intersect(str2).toMutableList()
     for (i in li1.indices) {
-        var count = -0
+        var count = 0
         if (str.count { x -> x == li1[i] } >= str.count { x -> x == li1[i] }) {
             count = str.count { x -> x == li1[i] }
         } else count = str.count { x -> x == li1[i] }
